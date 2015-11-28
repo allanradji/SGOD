@@ -18,6 +18,8 @@ public:
 private slots:
     void on_btnRetirar_clicked();
 
+    void on_btnChamar_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
