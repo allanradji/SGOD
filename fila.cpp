@@ -36,16 +36,16 @@ void Fila::setTamanho(int value){
 
 void Fila::enqueue(No *ptr){ // inserç?o em fila
     if(this->cabeca == NULL){ // se a cabeça estiver vazia a fila deve receber um novo nó
-        ptr->setNumero(1); // inserindo numero da primeira ficha
+        ptr->setNumero(this->ultimaFichaRetirada+1); // inserindo numero da primeira ficha
         this->cabeca = ptr;
         this->tail = cabeca;
     }else{ // caso contrário
-        ptr->setNumero(this->tail->getNumero()+1); // Inserindo o numero da ficha
+        ptr->setNumero(ultimaFichaRetirada+1); // Inserindo o numero da ficha
         this->tail->setProximo(ptr); // a calda da fila encadeia o novo nó
         this->tail = this->tail->getProximo(); // a calda da fila é atualizada
     }
     this->tamanho += 1; // tamanho da fila é atualizado
-    this->ultimaFichaRetirada = this-tail->getNumero();
+    this->ultimaFichaRetirada = this->tail->getNumero();
 }
 
 No *Fila::dequeue(){

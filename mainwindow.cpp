@@ -11,7 +11,6 @@ Fila_normal *fila_normal = new Fila_normal;
 Fila_prioridade *fila_prioridade = new Fila_prioridade;
 
 
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -105,7 +104,7 @@ void MainWindow::on_btnChamar_clicked() // botão chamar próxima ficha
 }
 
 void MainWindow::on_btnChamarPrioridade_clicked()
-{
+{/*
     if (fila_prioridade->isEmpty() == true){ // Verifica se a fila está vazia
         ui->alerta->setText("  A Fila prioritária está vazia!");
         delay(2000);
@@ -129,5 +128,5 @@ void MainWindow::on_btnChamarPrioridade_clicked()
                 }
             }
         }
-    }
+    }*/
 }
