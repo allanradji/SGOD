@@ -39,7 +39,7 @@
      <rect>
       <x>220</x>
       <y>190</y>
-      <width>141</width>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
@@ -75,7 +75,7 @@
      <rect>
       <x>220</x>
       <y>250</y>
-      <width>141</width>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
@@ -89,9 +89,12 @@
     </property>
    </widget>
    <widget class="QLCDNumber" name="painel">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>90</x>
       <y>50</y>
       <width>211</width>
       <height>111</height>
@@ -101,9 +104,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>20</x>
       <y>10</y>
-      <width>131</width>
+      <width>201</width>
       <height>31</height>
      </rect>
     </property>
@@ -114,7 +117,7 @@
      </font>
     </property>
     <property name="text">
-     <string>FICHA:</string>
+     <string>FICHA  ATUAL:</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblFixaSuaFicha">
@@ -159,6 +162,27 @@
      <number>24</number>
     </property>
    </widget>
+   <widget class="QLabel" name="alerta">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>15</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -166,7 +190,7 @@
      <x>0</x>
      <y>0</y>
      <width>414</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -16,12 +16,12 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     fila.cpp \
     fila_normal.cpp \
-    fila_prioridade.cpp
+    fila_prioridade.cpp \
+    no.cpp
 
 HEADERS  += mainwindow.h \
     fila.h \
     fila_normal.h \
-    fila_prioridade.h
-    no.cpp
+    fila_prioridade.h \
 
 FORMS    += mainwindow.ui \
