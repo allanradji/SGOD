@@ -11,8 +11,11 @@ private:
     No *cabeca; // ponteiro cabeça da fila
     No *tail;
     int tamanho; // variável estática da classe, indica o tamanho da fila.
+    int ultimaFichaRetirada;
 
 public:
+    int tipoFicha;//tipo 1-normal; 2-prioridade
+
     No* getCabeca(); // Get's e Set's
     void setCabeca(No *node);
     No* getTail();
@@ -21,10 +24,11 @@ public:
     void setTamanho(int value);
     Fila(); // construtor
     void enqueue(No *node); // Inserção na fila
+    int getTipoFicha(); //retorna se a ficha é normal ou prioridade
     No *dequeue(); // remoção na Fila
-    No *front ();
-    No *last();
-
+    No *front (); // consulta o primeiro da fila sem remove-lo
+    No *last(); // consulta o último da fila sem remove-lo
+    bool isEmpty(); // verifica se a fila está vazia e retorna TRUE caso esteja
 };
 
 #endif
