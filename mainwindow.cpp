@@ -10,7 +10,7 @@
 
 Fila_normal *fila_normal = new Fila_normal;
 Fila_prioridade *fila_prioridade = new Fila_prioridade;
-
+int tipoUltimaChamada;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -99,9 +99,14 @@ void MainWindow::on_btnChamar_clicked() // botão chamar próxima ficha
         ui->alerta->setText("  A Fila normal está vazia!");
         delay(2000);
         ui->alerta->setText("");
-    }else{
+    }
+    else if(tipoUltimaChamada == 1 && fila_prioridade->isEmpty() == false){
+        ui->alerta->setText(" A última ficha chamada foi normal e há fichas preferenciais em espera.");
+    }
+    else{
         ui->painel->display(fila_normal->getCabeca()->getNumero());
         ui->label_2->setText("N");
+        tipoUltimaChamada = fila_normal->getTipoFicha();
         delete fila_normal->dequeue();
     }
 }
@@ -112,9 +117,14 @@ void MainWindow::on_btnChamarPrioridade_clicked()
         ui->alerta->setText("  A Fila prioritária está vazia!");
         delay(2000);
         ui->alerta->setText("");
-    }else{
+    }
+    else if(tipoUltimaChamada == 2 && fila_normal->isEmpty() == false){
+        ui->alerta->setText(" A última ficha chamada foi preferencial e há fichas normais em espera.");
+    }
+    else{
         ui->painel->display(fila_prioridade->getCabeca()->getNumero());
         ui->label_2->setText("P");
+        tipoUltimaChamada = fila_prioridade->getTipoFicha();
         delete fila_prioridade->dequeue();
     }
 }

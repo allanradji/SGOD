@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>407</width>
-    <height>652</height>
+    <height>739</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -124,7 +124,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>470</y>
+      <y>540</y>
       <width>351</width>
       <height>51</height>
      </rect>
@@ -142,8 +142,8 @@
    <widget class="QLCDNumber" name="painelRetirarFicha">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>520</y>
+      <x>150</x>
+      <y>600</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -153,7 +153,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>570</y>
+      <y>660</y>
       <width>341</width>
       <height>23</height>
      </rect>
@@ -168,7 +168,7 @@
       <x>40</x>
       <y>360</y>
       <width>321</width>
-      <height>71</height>
+      <height>151</height>
      </rect>
     </property>
     <property name="font">
@@ -181,6 +181,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="btnRetirarPrioridade">
@@ -221,7 +224,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>520</y>
+      <y>600</y>
       <width>31</width>
       <height>41</height>
      </rect>
