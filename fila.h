@@ -25,9 +25,9 @@ public:
     void enqueue(No *node); // Inserção na fila
     int getTipoFicha(); //retorna se a ficha é normal ou prioridade
     No *dequeue(); // remoção na Fila
-    No *front ();
-    No *last();
-
+    No *front (); // consulta o primeiro da fila sem remove-lo
+    No *last(); // consulta o último da fila sem remove-lo
+    bool isEmpty(); // verifica se a fila está vazia e retorna TRUE caso esteja
 };
 
 #endif

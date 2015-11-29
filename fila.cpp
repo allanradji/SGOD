@@ -64,3 +64,11 @@ No* Fila::last (){ // consulta o último da fila sem remover
 int Fila::getTipoFicha(){
     return this->tipoFicha;
 }
+
+bool Fila::isEmpty(){
+    if (this->cabeca == NULL){
+        return true;
+    }else{
+        return false;
+    }
+}

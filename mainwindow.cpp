@@ -6,9 +6,12 @@
 #include <QMessageBox>
 #include "dialog.h"
 #include <QTime>
+#include <QPalette>
 
 Fila_normal *fila_normal = new Fila_normal;
 Fila_prioridade *fila_prioridade = new Fila_prioridade;
+No *atual = NULL;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->barraDeProgresso->hide();
+    QPalette palette = ui->alerta->palette();
+    palette.setColor(ui->alerta->foregroundRole(), Qt::red);
+    ui->alerta->setPalette(palette);
 }
 
 MainWindow::~MainWindow()
@@ -38,8 +44,9 @@ void MainWindow::on_btnRetirar_clicked()
     //abrir uma nova janela com as opções de retirar ficha preferencial ou normal
 
     No *novoNo = new No;
+    int tipoFicha = 1;
     //se foi selecionado ficha normal
-    if(true){
+    if(tipoFicha == 1){
         // insere um novo nó na fila
         fila_normal->enqueue(novoNo);
         No *ptr = fila_normal->getTail();
@@ -57,10 +64,12 @@ void MainWindow::on_btnRetirar_clicked()
         delay(500);
         ui->barraDeProgresso->setValue(100);
         ui->painelRetirarFicha->display(n);
-        ui->lblFixaSuaFicha->setText("Sua Ficha Normal");
+        ui->lblFixaSuaFicha->setText("Sua Ficha Normal:");
+        delay(2000);
+        ui->barraDeProgresso->hide();
     }
     //se foi selecionado ficha prioridade
-    if(false){
+    if(tipoFicha == 2){
         // insere um novo nó na fila
         fila_prioridade->enqueue(novoNo);
         No *ptr = fila_prioridade->getTail();
@@ -78,39 +87,64 @@ void MainWindow::on_btnRetirar_clicked()
         delay(500);
         ui->barraDeProgresso->setValue(100);
         ui->painelRetirarFicha->display(n);
-        ui->lblFixaSuaFicha->setText("Sua Ficha Prioritária");
+        ui->lblFixaSuaFicha->setText("Sua Ficha Prioritária:");
+        delay(2000);
+        ui->barraDeProgresso->hide();
     }
 }
 
-void MainWindow::on_btnChamar_clicked()
+void MainWindow::on_btnChamar_clicked() // botão chamar próxima ficha
 {
-    if(fila_normal->possui_Espera() == true) {
-
-        //verifica o último chamado
-
-        //se o último chamado foi normal e ainda tem preferencial, avisa que  deve chamar preferencial
-
-        //senão, chama o próximo normal
-
-        //ui->painel->display(a);
-    }
-    else{
-        QMessageBox::information(NULL, "Aviso", "Não há ficha normal na espera");
+    if (fila_normal->isEmpty() == true){ // Verifica se a fila está vazia
+        ui->alerta->setText("  A Fila normal está vazia!");
+        delay(2000);
+        ui->alerta->setText("");
+    }else{
+        if (fila_normal->getCabeca()->getProximo() == NULL){ // verifica se na fila existe somente 1 elemento
+            atual = fila_normal->getCabeca();
+            ui->painel->display(atual->getNumero());
+        }else{
+            if (atual == NULL){ // inicia o percorrimento em uma fila com vários elementos
+                atual = fila_normal->getCabeca();
+                ui->painel->display(atual->getNumero());
+            }else{
+                if (atual->getProximo() == NULL){ // verifica se é o último da fila
+                    ui->alerta->setText("  A Fila está vazia!");
+                    delay(2000);
+                    ui->alerta->setText("");
+                }else{
+                    atual = atual->getProximo(); // percorre a lista
+                    ui->painel->display(atual->getNumero());
+                }
+            }
+        }
     }
 }
 
 void MainWindow::on_btnChamarPrioridade_clicked()
 {
-    if(fila_prioridade->possui_Espera() == true){
-        //verifica o último chamado
-
-        //se o último chamado foi prefernecial e ainda tem normal, avisa que  deve chamar um normal
-
-        //senão, chama o próximo preferencial
-
-        //ui->painel->display(a);
-    }
-    else{
-        QMessageBox::information(NULL, "Aviso", "Não há ficha prioridade na espera");
+    if (fila_prioridade->isEmpty() == true){ // Verifica se a fila está vazia
+        ui->alerta->setText("  A Fila prioritária está vazia!");
+        delay(2000);
+        ui->alerta->setText("");
+    }else{
+        if (fila_prioridade->getCabeca()->getProximo() == NULL){ // verifica se na fila existe somente 1 elemento
+            atual = fila_prioridade->getCabeca();
+            ui->painel->display(atual->getNumero());
+        }else{
+            if (atual == NULL){ // inicia o percorrimento em uma fila com vários elementos
+                atual = fila_prioridade->getCabeca();
+                ui->painel->display(atual->getNumero());
+            }else{
+                if (atual->getProximo() == NULL){ // verifica se é o último da fila
+                    ui->alerta->setText("  A Fila está vazia!");
+                    delay(2000);
+                    ui->alerta->setText("");
+                }else{
+                    atual = atual->getProximo(); // percorre a lista
+                    ui->painel->display(atual->getNumero());
+                }
+            }
+        }
     }
 }
