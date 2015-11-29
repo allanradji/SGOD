@@ -22,5 +22,6 @@ HEADERS  += mainwindow.h \
     fila.h \
     fila_normal.h \
     fila_prioridade.h
+    no.cpp
 
 FORMS    += mainwindow.ui

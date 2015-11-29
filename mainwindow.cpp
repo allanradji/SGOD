@@ -4,6 +4,8 @@
 #include "fila_normal.h"
 #include "fila_prioridade.h"
 #include <QMessageBox>
+#include "dialog.h"
+#include <QTime>
 
 Fila_normal *fila_normal = new Fila_normal;
 Fila_prioridade *fila_prioridade = new Fila_prioridade;
@@ -13,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->barraDeProgresso->hide();
 }
 
 MainWindow::~MainWindow()
@@ -20,26 +23,62 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void delay( int millisecondsToWait )
+{
+    QTime dieTime = QTime::currentTime().addMSecs( millisecondsToWait );
+    while( QTime::currentTime() < dieTime )
+    {
+        QCoreApplication::processEvents( QEventLoop::AllEvents, 100 );
+    }
+}
+
+
 void MainWindow::on_btnRetirar_clicked()
 {
     //abrir uma nova janela com as opções de retirar ficha preferencial ou normal
 
-    No *novoNoa = new No;
-    novoNoa->numero = 2;
-    novoNoa->proximo = NULL;
+    No *novoNo = new No;
     //se foi selecionado ficha normal
     if(true){
-        fila_normal->enqueue(novoNoa);
-        No *ptr = fila_normal->dequeue();
-        int a = ptr->numero;
-        ui->painel->display(a);
+        // insere um novo nó na fila
+        fila_normal->enqueue(novoNo);
+        No *ptr = fila_normal->getTail();
+        int n = ptr->getNumero();
+        // Simula impressão da ficha e exibe-a
+        ui->lblFixaSuaFicha->setText("Imprimindo...");
+        ui->barraDeProgresso->setValue(0);
+        ui->barraDeProgresso->show();
+        delay(500);
+        ui->barraDeProgresso->setValue(25);
+        delay(500);
+        ui->barraDeProgresso->setValue(50);
+        delay(500);
+        ui->barraDeProgresso->setValue(75);
+        delay(500);
+        ui->barraDeProgresso->setValue(100);
+        ui->painelRetirarFicha->display(n);
+        ui->lblFixaSuaFicha->setText("Sua Ficha Normal");
     }
     //se foi selecionado ficha prioridade
     if(false){
-        fila_prioridade->enqueue(novoNoa);
-        No *ptr = fila_prioridade->dequeue();
-        int a = ptr->numero;
-        ui->painel->display(a);
+        // insere um novo nó na fila
+        fila_prioridade->enqueue(novoNo);
+        No *ptr = fila_prioridade->getTail();
+        int n = ptr->getNumero();
+        // Simula impressão da ficha e exibe-a
+        ui->lblFixaSuaFicha->setText("Imprimindo...");
+        ui->barraDeProgresso->setValue(0);
+        ui->barraDeProgresso->show();
+        delay(500);
+        ui->barraDeProgresso->setValue(25);
+        delay(500);
+        ui->barraDeProgresso->setValue(50);
+        delay(500);
+        ui->barraDeProgresso->setValue(75);
+        delay(500);
+        ui->barraDeProgresso->setValue(100);
+        ui->painelRetirarFicha->display(n);
+        ui->lblFixaSuaFicha->setText("Sua Ficha Prioritária");
     }
 }
 
