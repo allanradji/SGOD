@@ -16,8 +16,10 @@ private:
     int tamanho; // variável estática da classe, indica o tamanho da fila.
 
 public:
+    int tipoFicha;//tipo 1-normal; 2-prioridade
     Fila(); // construtor
     void enqueue(No *node); // Inserção na fila
+    int getTipoFicha(); //retorna se a ficha é normal ou prioridade
     No *dequeue(); // remoção na Fila
 
 };

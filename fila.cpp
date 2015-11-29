@@ -28,3 +28,6 @@ No *Fila::dequeue(){
     return aux; // retorna o nó removido.
 }
 
+int Fila::getTipoFicha(){
+    return this->tipoFicha;
+}
