@@ -60,3 +60,11 @@ No* Fila::front (){ // consulta o primeiro da fila sem remover
 No* Fila::last (){ // consulta o último da fila sem remover
     return this->tail;
 }
+
+bool Fila::isEmpty(){
+    if (this->cabeca == NULL){
+        return true;
+    }else{
+        return false;
+    }
+}
