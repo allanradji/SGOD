@@ -15,13 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     fila.cpp \
-    fila_normal.cpp \
+    no.cpp \
     fila_prioridade.cpp \
-    no.cpp
+    fila_normal.cpp
 
 HEADERS  += mainwindow.h \
     fila.h \
-    fila_normal.h \
+    no.h \
     fila_prioridade.h \
+    fila_normal.h
 
-FORMS    += mainwindow.ui \
+FORMS    += mainwindow.ui
+

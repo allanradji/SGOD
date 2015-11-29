@@ -52,24 +52,6 @@
      <string>Chamar Ficha</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnPular">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>300</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Arial</family>
-     </font>
-    </property>
-    <property name="text">
-     <string>Pular Ficha</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnChamarPrioridade">
     <property name="geometry">
      <rect>
@@ -246,7 +228,7 @@
      <x>0</x>
      <y>0</y>
      <width>407</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

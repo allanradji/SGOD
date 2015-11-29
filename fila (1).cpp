@@ -6,7 +6,7 @@ using namespace std;
 Fila::Fila(){ // construtor
     this->cabeca = NULL;
     this->tamanho = 0;
-    this->ultimaFichaRetirada = 0;
+    ultimaFichaRetirada = 0;
     this->tail = NULL;
 }
 
@@ -36,7 +36,7 @@ void Fila::setTamanho(int value){
 
 void Fila::enqueue(No *ptr){ // inserç?o em fila
     if(this->cabeca == NULL){ // se a cabeça estiver vazia a fila deve receber um novo nó
-         ptr->setNumero(this->ultimaFichaRetirada+1); // inserindo numero da primeira ficha
+        ptr->setNumero(this->ultimaFichaRetirada+1); // inserindo numero da primeira ficha
         this->cabeca = ptr;
         this->tail = cabeca;
     }else{ // caso contrário
